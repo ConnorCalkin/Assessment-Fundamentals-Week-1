@@ -8,6 +8,9 @@ basket = []
 
 
 def add_to_basket(item: dict) -> list:
+    '''
+    adds the given item and returns an updated dictionary
+    '''
     basket.append(item)
     return basket
 
@@ -16,12 +19,20 @@ def generate_receipt(basket: list) -> str:
     '''
     creates a reciept showing all of the prices of the items in the basket
     '''
+    if len(basket) == 0:
+        return "Basket is empty"
     receipt = ""
     total = 0
     for item in basket:
-        receipt += (f"{item["name"]} - £{item["price"]:.2f}\n")
+        price = item["price"]
+        price_str = f"£{item["price"]:.2f}"
+        if price == 0:
+            price_str = "Free"
+
+        receipt += (f"{item["name"]} - {price_str}\n")
         total += item["price"]
-    receipt += f"Total: £{total}"
+    total = round(total, 2)
+    receipt += f"Total: £{total:.2f}"
     return receipt
 
 
