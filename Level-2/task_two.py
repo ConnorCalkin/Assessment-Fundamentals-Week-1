@@ -5,26 +5,47 @@ The only variable you are allowed to use in the global scope is the basket below
 
 basket = []
 
-#####
-#
-# COPY YOUR CODE FROM LEVEL 1 BELOW
-#
-#####
-
 
 def add_to_basket(item: dict) -> list:
-    pass
+    '''
+    adds the given item and returns an updated dictionary
+    '''
+    new_item = item.copy()
 
+    for old_item in basket:
+        old_single_item_price = old_item["price"] / old_item["count"]
+
+        if (old_item["name"] == new_item["name"]
+                and old_single_item_price == new_item["price"]):
+
+            old_item["count"] += 1
+            old_item["price"] += new_item["price"]
+            return basket
+
+    new_item["count"] = 1
+    basket.append(new_item)
+    return basket
 
 
 def generate_receipt(basket: list) -> str:
-    pass
+    '''
+    creates a reciept showing all of the prices of the items in the basket
+    '''
+    if len(basket) == 0:
+        return "Basket is empty"
+    receipt = ""
+    total = 0
+    for item in basket:
+        price = item["price"]
+        price_str = f"£{item["price"]:.2f}"
+        if price == 0:
+            price_str = "Free"
 
-#####
-#
-# COPY YOUR CODE FROM LEVEL 1 ABOVE
-#
-#####
+        receipt += (f"{item["name"]} x {item["count"]} - {price_str}\n")
+        total += item["price"]
+    total = round(total, 2)
+    receipt += f"Total: £{total:.2f}"
+    return receipt
 
 
 if __name__ == "__main__":

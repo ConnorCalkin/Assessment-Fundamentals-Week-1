@@ -3,6 +3,7 @@
 from task_two import generate_receipt, add_to_basket, basket
 import pytest
 
+
 def reset_basket():
     basket.clear()
 
@@ -62,11 +63,15 @@ def test_generate_receipt_different_quantities():
     item1 = {'name': 'Apple', 'price': 0.5}
     item2 = {'name': 'Toffee', 'price': 0.3}
     add_to_basket(item1)
+    print(item1)
     add_to_basket(item1)
+    print(item1)
     add_to_basket(item1)
+    print(item1)
     add_to_basket(item2)
     add_to_basket(item2)
     result = generate_receipt(basket)
+    print(result)
     assert result == "Apple x 3 - £1.50\nToffee x 2 - £0.60\nTotal: £2.10"
 
 
