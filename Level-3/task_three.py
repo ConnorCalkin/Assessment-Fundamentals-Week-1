@@ -8,12 +8,15 @@ def generate_item_invoice(item_string: str) -> str:
     takes in a line from a receipt such as: Bread x 2 - £3.60
     then, it returns what it would be in the invoice: Bread x 2 - £2.88
     '''
-    result = ""
+
     words = item_string.split(" ")
-    result += " ".join(words[:-1])
+
     price = words[-1]
     price_float = float(price[1:])
     new_price = price_float * 0.8
+
+    result = ""
+    result += " ".join(words[:-1])
     result += f" £{new_price:.2f}"
     return result
 
@@ -38,11 +41,12 @@ def generate_invoice(receipt_string: str) -> str:
     '''
     Generates an invoice given a receipt
     '''
-    result = "VAT RECEIPT\n\n"
 
     lines = receipt_string.split('\n')
     items_strings = lines[:-1]
     total_string = lines[-1]
+
+    result = "VAT RECEIPT\n\n"
 
     for item_string in items_strings:
         result += generate_item_invoice(item_string)

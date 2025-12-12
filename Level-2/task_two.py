@@ -10,6 +10,7 @@ def add_to_basket(item: dict) -> list:
     '''
     adds the given item and returns an updated dictionary
     '''
+    # I don't want anything we do here or later to interfere with the original item object
     new_item = item.copy()
 
     for old_item in basket:
