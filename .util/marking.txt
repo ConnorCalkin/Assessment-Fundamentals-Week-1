@@ -11,10 +11,10 @@ Level-3/test_three_task.py .......                                       [100%]
 ************* Module task_one
 Level-1/task_one.py:18:21: W0621: Redefining name 'basket' from outer scope (line 7) (redefined-outer-name)
 ************* Module task_two
-Level-2/task_two.py:30:21: W0621: Redefining name 'basket' from outer scope (line 6) (redefined-outer-name)
+Level-2/task_two.py:31:21: W0621: Redefining name 'basket' from outer scope (line 6) (redefined-outer-name)
 ************* Module task_three
-Level-3/task_three.py:37:21: W0621: Redefining name 'receipt_string' from outer scope (line 60) (redefined-outer-name)
-Level-3/task_three.py:60:4: C0103: Constant name "receipt_string" doesn't conform to UPPER_CASE naming style (invalid-name)
+Level-3/task_three.py:40:21: W0621: Redefining name 'receipt_string' from outer scope (line 64) (redefined-outer-name)
+Level-3/task_three.py:64:4: C0103: Constant name "receipt_string" doesn't conform to UPPER_CASE naming style (invalid-name)
 
 ------------------------------------------------------------------
 Your code has been rated at 9.54/10 (previous run: 9.54/10, +0.00)
